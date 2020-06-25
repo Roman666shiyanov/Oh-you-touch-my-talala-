@@ -119,7 +119,7 @@ namespace WindowsFormsApp10
                 StreamReader f = new StreamReader(@"C:\\massiv.txt"); // Объявление StreamReader
 
                 string[] a = f.ReadToEnd().Split('\n');// Чтение данных из файла
-                for (int i = 0; i < 25; i++)
+                for (int i = 0; i < 24; i++)
                 {
                     dataGridView1.Rows[0].Cells[i].Value = a[i]; // Заполнение ячеек
                     mas[i] = Convert.ToInt32(a[i]); // Заполнение массива 
