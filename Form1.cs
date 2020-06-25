@@ -51,21 +51,27 @@ namespace WindowsFormsApp10
                                     //Кнопка "Вычисление массива" (Задание)
 
         private void Zadanie(object sender, EventArgs e)  
-        {
-             void FillDataGridView1<T>(DataGridView mas, T[] ar)
-           {
-                mas.ColumnCount = ar.Length;
-                mas.RowCount = 1;
-                for (int i = 0; i < ar.Length; i++)
+        int temp = 0;
+            for (int i = 0; i < 36; i++)// Нахождение среднего арифметического отрицательных элементов массива
+            {
+
+                if (array[i] < 0)
                 {
-                    mas[i, 1].Value = ar[i];
-                    label2.Text = "Среднее арифметическое :" + mas.ToString();
+                    sr += array[i];
+                    count++;
                 }
-               
-            }
+
+            for (int j = 0; j < 36; j++)// Нахождение среднего арифметического положительных элементов массива
+             {
+
+                if (array[
+                {
+                    sr += array[i];
+                    temp++;
+                }
+             label1.Text = "Среднее арифметическое положительных элементов:" + Math.Round(sr * count, 3);
+            label2.Text = "Среднее арифметическое отрицательных элементов :" + Math.Round(sr / count, 3);
         }
-
-
 
                                        //Кнопка "Рандомное заполнение массива"
 
@@ -110,18 +116,18 @@ namespace WindowsFormsApp10
         {
             try
             {
-                StreamReader f = new StreamReader(@"C:\\massiv.txt");
+                StreamReader f = new StreamReader(@"C:\\massiv.txt"); // Объявление StreamReader
 
-                string[] a = f.ReadToEnd().Split('\n');
+                string[] a = f.ReadToEnd().Split('\n');// Чтение данных из файла
                 for (int i = 0; i < 25; i++)
                 {
-                    dataGridView1.Rows[0].Cells[i].Value = a[i];
-                    mas[i] = Convert.ToInt32(a[i]);
+                    dataGridView1.Rows[0].Cells[i].Value = a[i]; // Заполнение ячеек
+                    mas[i] = Convert.ToInt32(a[i]); // Заполнение массива 
                 }
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("Ошибка! Не удалось найти файл.!");
+                MessageBox.Show("Ошибка! Не удалось найти файл.!"); // Исключение при отсутствии файла
             }
         }
 
